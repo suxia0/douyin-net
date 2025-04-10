@@ -1,7 +1,7 @@
 // netlify/functions/api.js
 const express = require('express');
 const app = express();
-const http = require('http'); // 引入 http 模块
+const http = require('http');
 
 // 确保 express 应用可以解析 JSON 请求体
 app.use(express.json());
@@ -49,43 +49,43 @@ app.post('/', (req, res) => {
 
 exports.handler = async (event, context) => {
     return new Promise((resolve) => {
-        const server = http.createServer(app);
-        const httpRequest = new http.IncomingMessage({}); // 使用 http.IncomingMessage
-        httpRequest.method = event.httpMethod;
-        httpRequest.url = event.path;
-        httpRequest.headers = event.headers;
-        httpRequest.body = event.body;
+        const req = {
+            method: event.httpMethod,
+            url: event.path,
+            headers: event.headers,
+            body: event.body ? JSON.parse(event.body) : {}
+        };
 
-        const httpResponse = {
+        const res = {
             statusCode: 200,
             headers: {},
-            body: '',
             send: (body) => {
-                httpResponse.body = body;
+                if (typeof body === 'object') {
+                    body = JSON.stringify(body);
+                    res.headers['Content-Type'] = 'application/json';
+                }
                 resolve({
-                    statusCode: httpResponse.statusCode,
-                    headers: httpResponse.headers,
-                    body: typeof httpResponse.body === 'string' ? httpResponse.body : JSON.stringify(httpResponse.body)
+                    statusCode: res.statusCode,
+                    headers: res.headers,
+                    body
                 });
             },
+            json: (body) => {
+                res.headers['Content-Type'] = 'application/json';
+                res.send(body);
+            },
             setHeader: (key, value) => {
-                httpResponse.headers[key] = value;
+                res.headers[key] = value;
             },
             status: (statusCode) => {
-                httpResponse.statusCode = statusCode;
+                res.statusCode = statusCode;
                 return {
-                    send: (body) => {
-                        httpResponse.body = body;
-                        resolve({
-                            statusCode: httpResponse.statusCode,
-                            headers: httpResponse.headers,
-                            body: typeof httpResponse.body === 'string' ? httpResponse.body : JSON.stringify(httpResponse.body)
-                        });
-                    }
+                    send: res.send,
+                    json: res.json
                 };
             }
         };
 
-        app(httpRequest, httpResponse);
+        app(req, res);
     });
 };
