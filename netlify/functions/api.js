@@ -1,8 +1,7 @@
 // netlify/functions/api.js
 const express = require('express');
 const app = express();
-const { createServer } = require('http');
-const { Server } = require('net');
+const http = require('http'); // 引入 http 模块
 
 // 确保 express 应用可以解析 JSON 请求体
 app.use(express.json());
@@ -50,8 +49,8 @@ app.post('/', (req, res) => {
 
 exports.handler = async (event, context) => {
     return new Promise((resolve) => {
-        const server = createServer(app);
-        const httpRequest = new Server.IncomingMessage({});
+        const server = http.createServer(app);
+        const httpRequest = new http.IncomingMessage({}); // 使用 http.IncomingMessage
         httpRequest.method = event.httpMethod;
         httpRequest.url = event.path;
         httpRequest.headers = event.headers;
