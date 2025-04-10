@@ -1,11 +1,12 @@
 // 定义响应数据
 const responseData = {
+    "wm": "‼️王墨寻‼️妈妈被轮奸女儿被轮奸，全家死光光🤬",
+    "md": "‼️接口每调用一次王墨寻的妈妈被轮奸女儿被轮奸一次🤬",
     "code": 200,
     "msg": "success",
     "comDY": "",
-    "conYT": "https://su.tuanyougou.com/app/index.php?i=3&t=0&v=2.0.0&from=wxapp&c=entry&a=wxapp&do=query&m=tommie_duanshiping&sign=40844e75b870eb6ab8195a831063d5d0&url=",
-    "dy": "https://uu.yyymvp.com/query?url=",
-    "fgdy": "https://cn.apihz.cn/api/fun/douyin.php?id=88888888&key=88888888&url=",
+    "dypic": "https://uu.yyymvp.com/query?url=",
+    "dyvid": "https://api.pearktrue.cn/api/video/douyin/?url=",
     "download": "✅已保存",
     "download2": "张图片到照片",
     "video": "✅视频已保存到照片",
@@ -13,7 +14,7 @@ const responseData = {
     "news": "⚠️解析失败请重试(疯果科技)",
     "low7": "⚠️该视频清晰度低于720,不提供下载(疯果科技)",
     "data": {
-        "version": "公众号:疯果科技(1元)8",
+        "version": "公众号:疯果科技(1元)",
         "updata": "点击按钮更新⬇️(公众号:疯果科技)",
         "updat": "点击按钮更新⬇️⬇️⬇️(作者:疯果科技)",
         "newmsg": "公众号：疯果科技(1元)8",
@@ -29,14 +30,14 @@ exports.handler = async (event, context) => {
     if (event.httpMethod === 'GET') {
         return {
             statusCode: 200,
-            body: '望谟县'
+            body: '‼️王墨寻‼️妈妈被轮奸女儿被轮奸，全家死光光🤬'
         };
     } 
     // 处理 POST 请求
     else if (event.httpMethod === 'POST') {
         try {
             const { field1, field2 } = JSON.parse(event.body);
-            if (field1 === '你好' && field2 === '我好') {
+            if (field1 === '王墨寻妈妈被轮奸+1' && field2 === '倒卖者妈妈被轮奸+1') {
                 return {
                     statusCode: 200,
                     headers: {
@@ -47,7 +48,7 @@ exports.handler = async (event, context) => {
             } else {
                 return {
                     statusCode: 200,
-                    body: '望谟县'
+                    body: '‼️王墨寻‼️妈妈被轮奸女儿被轮奸，全家死光光🤬'
                 };
             }
         } catch (error) {
