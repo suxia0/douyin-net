@@ -1,12 +1,13 @@
+// netlify/functions/api.js
 const express = require('express');
-const serverless = require('serverless-http');
-
 const app = express();
-const port = 3000;
+const { createServer } = require('http');
+const { Server } = require('net');
 
-// 用于解析 JSON 格式的请求体
+// 确保 express 应用可以解析 JSON 请求体
 app.use(express.json());
 
+// 这里复制 app.js 中的路由逻辑
 const responseData = {
     "code": 200,
     "msg": "success",
@@ -47,8 +48,45 @@ app.post('/', (req, res) => {
     }
 });
 
-const handler = serverless(app);
+exports.handler = async (event, context) => {
+    return new Promise((resolve) => {
+        const server = createServer(app);
+        const httpRequest = new Server.IncomingMessage({});
+        httpRequest.method = event.httpMethod;
+        httpRequest.url = event.path;
+        httpRequest.headers = event.headers;
+        httpRequest.body = event.body;
 
-module.exports.handler = async (event, context) => {
-    return await handler(event, context);
-};    
+        const httpResponse = {
+            statusCode: 200,
+            headers: {},
+            body: '',
+            send: (body) => {
+                httpResponse.body = body;
+                resolve({
+                    statusCode: httpResponse.statusCode,
+                    headers: httpResponse.headers,
+                    body: typeof httpResponse.body === 'string' ? httpResponse.body : JSON.stringify(httpResponse.body)
+                });
+            },
+            setHeader: (key, value) => {
+                httpResponse.headers[key] = value;
+            },
+            status: (statusCode) => {
+                httpResponse.statusCode = statusCode;
+                return {
+                    send: (body) => {
+                        httpResponse.body = body;
+                        resolve({
+                            statusCode: httpResponse.statusCode,
+                            headers: httpResponse.headers,
+                            body: typeof httpResponse.body === 'string' ? httpResponse.body : JSON.stringify(httpResponse.body)
+                        });
+                    }
+                };
+            }
+        };
+
+        app(httpRequest, httpResponse);
+    });
+};
