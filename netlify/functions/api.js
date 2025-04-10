@@ -1,12 +1,4 @@
-// netlify/functions/api.js
-const express = require('express');
-const app = express();
-const http = require('http');
-
-// 确保 express 应用可以解析 JSON 请求体
-app.use(express.json());
-
-// 这里复制 app.js 中的路由逻辑
+// 定义响应数据
 const responseData = {
     "code": 200,
     "msg": "success",
@@ -31,61 +23,43 @@ const responseData = {
     }
 };
 
-// 处理 GET 请求
-app.get('/', (req, res) => {
-    res.send('望谟县');
-});
-
-// 处理 POST 请求
-app.post('/', (req, res) => {
-    const { field1, field2 } = req.body;
-
-    if (field1 === '你好' && field2 === '我好') {
-        res.json(responseData);
-    } else {
-        res.send('望谟县');
-    }
-});
-
+// 导出处理函数
 exports.handler = async (event, context) => {
-    return new Promise((resolve) => {
-        const req = {
-            method: event.httpMethod,
-            url: event.path,
-            headers: event.headers,
-            body: event.body ? JSON.parse(event.body) : {}
-        };
-
-        const res = {
+    // 处理 GET 请求
+    if (event.httpMethod === 'GET') {
+        return {
             statusCode: 200,
-            headers: {},
-            send: (body) => {
-                if (typeof body === 'object') {
-                    body = JSON.stringify(body);
-                    res.headers['Content-Type'] = 'application/json';
-                }
-                resolve({
-                    statusCode: res.statusCode,
-                    headers: res.headers,
-                    body
-                });
-            },
-            json: (body) => {
-                res.headers['Content-Type'] = 'application/json';
-                res.send(body);
-            },
-            setHeader: (key, value) => {
-                res.headers[key] = value;
-            },
-            status: (statusCode) => {
-                res.statusCode = statusCode;
+            body: '望谟县'
+        };
+    } 
+    // 处理 POST 请求
+    else if (event.httpMethod === 'POST') {
+        try {
+            const { field1, field2 } = JSON.parse(event.body);
+            if (field1 === '你好' && field2 === '我好') {
                 return {
-                    send: res.send,
-                    json: res.json
+                    statusCode: 200,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(responseData)
+                };
+            } else {
+                return {
+                    statusCode: 200,
+                    body: '望谟县'
                 };
             }
-        };
-
-        app(req, res);
-    });
+        } catch (error) {
+            return {
+                statusCode: 400,
+                body: 'Invalid JSON in request body'
+            };
+        }
+    }
+    // 处理不支持的请求方法
+    return {
+        statusCode: 405,
+        body: 'Method Not Allowed'
+    };
 };
