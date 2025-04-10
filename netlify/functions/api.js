@@ -17,7 +17,7 @@ const responseData = {
         "version": "公众号:疯果科技(1元)",
         "updata": "点击按钮更新⬇️(公众号:疯果科技)",
         "updat": "点击按钮更新⬇️⬇️⬇️(作者:疯果科技)",
-        "newmsg": "公众号：疯果科技(1元)8",
+        "newmsg": "公众号：疯果科技(1元)",
         "vcode": "419",
         "title": "⚠️盗用死全家",
         "url": "https://www.icloud.com/shortcuts/72b2716453944c3abde59ff242332ae9"
