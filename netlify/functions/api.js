@@ -35,7 +35,7 @@ exports.handler = async (event, context) => {
     else if (event.httpMethod === 'POST') {
         try {
             const { field1, field2 } = JSON.parse(event.body);
-            if (field1 === '王墨寻妈妈被轮奸+1' && field2 === '倒卖者妈妈被轮奸+1') {
+            if (field1 === '王墨寻妈妈被+1' && field2 === '倒卖者妈妈被+1') {
                 return {
                     statusCode: 200,
                     headers: {
@@ -46,7 +46,7 @@ exports.handler = async (event, context) => {
             } else {
                 return {
                     statusCode: 200,
-                    body: '‼️王墨寻‼️妈妈被轮奸女儿被轮奸，全家死光光🤬'
+                    body: '‼️王墨寻‼️妈妈被女儿被，全家光光🤬'
                 };
             }
         } catch (error) {
