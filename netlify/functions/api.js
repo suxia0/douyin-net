@@ -35,7 +35,7 @@ exports.handler = async (event, context) => {
     else if (event.httpMethod === 'POST') {
         try {
             const { field1, field2 } = JSON.parse(event.body);
-            if (field1 === '王墨寻妈妈被+1' && field2 === '倒卖者妈妈被+1') {
+            if (field1 === '王墨寻妈妈被+1' && field2 === '倒卖妈妈被+1') {
                 return {
                     statusCode: 200,
                     headers: {
