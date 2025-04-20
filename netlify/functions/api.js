@@ -18,7 +18,7 @@ const responseData = {
         "newmsg": "公众号：疯果科技(1元)",
         "vcode": "419",
         "title": "⚠️盗用全家",
-        "url": "https://www.icloud.com/shortcuts/72b2716453944c3abde59ff242332ae9"
+        "url": "https://www.icloud.com/shortcuts/2f65f95944694a4b9a376a7f3807ea51"
     }
 };
 
