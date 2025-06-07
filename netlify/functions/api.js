@@ -4,7 +4,7 @@ const responseData = {
     "msg": "success",
     "comDY": "",
     "dy-pic1": "https://a.jiejing.fun/?url=",
-    "dy-pic2": "&kl",
+    "dy-pic2": "&kl=",
     "dyvid": "https://api.pearktrue.cn/api/video/douyin/?url=",
     "dy-live": "https://a.jiejing.fun/?url=",
     "dy-live2": "&live=yes&kl",
