@@ -3,7 +3,7 @@ const responseData = {
     "code": 200,
     "msg": "success",
     "comDY": "",
-    "dy-pic1": "https://a.jiejing.fun/?url=",
+    "dy-pic1": "https://api.mu-jie.cc/douyin?url=",
     "dy-pic2": "&kl=",
     "dyvid": "https://api.pearktrue.cn/api/video/douyin/?url=",
     "dy-live": "https://a.jiejing.fun/?url=",
