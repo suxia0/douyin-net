@@ -6,7 +6,7 @@ const responseData = {
     "dy-pic1": "https://api.mu-jie.cc/douyin?url=",
     "dy-pic2": "&kl=",
     "dyvid": "https://api.pearktrue.cn/api/video/douyin/?url=",
-    "dy-live": "",
+    "dy-live": "https://a.jiejing.fun/?url=",
     "dy-live2": "&live=yes&kl",
     "download": "✅已保存",
     "download2": "张图片到照片",
