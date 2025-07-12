@@ -2,7 +2,7 @@
 const responseData = {
     "code": 200,
     "msg": "success",
-    "comDY": "",
+    "comDY": "11",
     "dy-pic1": "https://api.mu-jie.cc/douyin?url=",
     "dy-pic2": "&kl=",
     "dyvid": "http://api.xiaoyizi.vip/api.php?url=",
