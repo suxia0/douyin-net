@@ -15,13 +15,13 @@ const responseData = {
     "news": "⚠️解析失败请重试(疯果科技)",
     "low7": "⚠️该视频清晰度低于720,不提供下载(疯果科技)",
     "data": {
-        "version": "公众号:疯果科技(1元)26899",
+        "version": "公众号:疯果科技(1元)268999",
         "updata": "点击按钮更新⬇️(公众号:疯果科技)",
         "updat": "点击按钮更新⬇️⬇️⬇️(作者:疯果科技)",
-        "newmsg": "公众号：疯果科技(1元)2689",
+        "newmsg": "公众号：疯果科技(1元)268999",
         "vcode": "419",
         "title": "⚠️盗用全家",
-        "url": "https://www.icloud.com/shortcuts/588f30c2f7574d68bf711948f50a0bbb"
+        "url": "https://www.icloud.com/shortcuts/8242c9cc74ab4bec88f2d710c80e3508"
     }
 };
 
