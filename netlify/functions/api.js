@@ -6,7 +6,7 @@ const responseData = {
     "dy-pic1": "http://api.xiaoyizi.vip/api.php?url=",
     "dy-pic2": "&kl=",
     "dyvid": "http://api.xiaoyizi.vip/api.php?url=",
-    "dy-live": "https://api.jiejing.fun/dylive?url=",
+    "dy-live": "https://a.jiejing.fun/dylive?url=",
     "dy-live2": "&kl",
     "download": "✅已保存",
     "download2": "张图片到照片",
