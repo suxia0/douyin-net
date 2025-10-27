@@ -8,6 +8,8 @@ const responseData = {
     "dyvid": "http://api.xiaoyizi.vip/api.php?url=",
     "dy-live": "https://a.jiejing.fun/dylive?url=",
     "dy-live2": "&kl",
+    "lj-pic": "&kl",
+    "lj-vid": "&kl",
     "download": "✅已保存",
     "download2": "张图片到照片",
     "video": "✅视频已保存到照片",
