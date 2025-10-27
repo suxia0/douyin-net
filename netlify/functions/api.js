@@ -10,6 +10,7 @@ const responseData = {
     "dy-live2": "&kl",
     "lj-pic": "images",
     "lj-vid": "url",
+    "word": "keyword",
     "download": "✅已保存",
     "download2": "张图片到照片",
     "video": "✅视频已保存到照片",
