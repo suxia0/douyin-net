@@ -9,7 +9,7 @@ const responseData = {
     "dyvid2": "https://api.mmp.cc/api/Jiexi?url=",
     "dy-live": "https://a.jiejing.fun/dylive?url=",
     "dy-live2": "&kl",
-    "lj-pic": "images",
+    "lj-pic": "imageUrlList",
     "lj-vid": "url",
     "lj-vid2": "video_url_HQ",
     "word": "url",
