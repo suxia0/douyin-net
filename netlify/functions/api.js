@@ -16,6 +16,8 @@ const responseData = {
     "lj-pic": "images",
     "lj-vid": "url",
     "lj-vid2": "video_url_HQ",
+    "live-url": "https://qsy.jiejing.fun",
+    "live-vs": "31",
     "word": "keyword",
     "download": "✅已保存",
     "download2": "张图片到照片",
